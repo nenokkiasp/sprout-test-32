@@ -1,0 +1,52 @@
+name: Initialize Spring Project
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate-template:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Spring CLI
+        run: |
+          brew tap spring-io/tap
+          brew install spring-boot
+      
+      - name: Run Spring Initializr
+      
+        run: |
+          spring init \
+#            --build=maven \
+#            --language=java \
+#            --java-version=17 \
+#            --packaging=jar \
+#            --group-id=com.eficode \
+#            --artifact-id=sprouttest \
+#            --name=sprouttest \
+#            --description=Test project for Sprout template \
+            --build=maven \
+            --language=java \
+            --java-version=17 \
+            --packaging=jar \
+            --group-id=com.eficode \
+            --artifact-id=sprouttest \
+            --name=sprouttest \
+            --description=Test project for Sprout template \
+            --dependencies=web \
+            --extract \
+            --force
+
+#      - name: Unzip Spring project
+#        run: unzip -o sprouttest.zip
+
+#      - name: Remove initialization workflow
+#        run: rm .github/workflows/init_repository.yml
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: Initialize Spring project
+          title: Initialize Spring project
+          delete-branch: true

@@ -1,0 +1,9 @@
+services:
+  rest_spring:
+    build:
+      context: ./rest_spring
+    environment:
+      PORT: 8080
+    ports:
+    - 8080:8080
+version: '3.9'
