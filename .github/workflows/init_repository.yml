@@ -15,17 +15,8 @@ jobs:
           brew install spring-boot
       
       - name: Run Spring Initializr
-      
         run: |
           spring init \
-#            --build=maven \
-#            --language=java \
-#            --java-version=17 \
-#            --packaging=jar \
-#            --group-id=com.eficode \
-#            --artifact-id=sprouttest \
-#            --name=sprouttest \
-#            --description=Test project for Sprout template \
             --build=maven \
             --language=java \
             --java-version=17 \
