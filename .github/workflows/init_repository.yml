@@ -26,8 +26,8 @@ jobs:
             --name=sprouttest \
             --description=Test project for Sprout template \
             --dependencies=web \
-            --extract \
-            --force
+            --force \
+            --extract
 
 #      - name: Unzip Spring project
 #        run: unzip -o sprouttest.zip
